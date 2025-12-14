@@ -47,28 +47,28 @@ impl MyRange {
 
 fn is_invalid_id_part_1(id: isize) -> bool {
     let id_text: String = id.to_string();
-    if id_text.len() % 2 != 0 {
+    if !id_text.len().is_multiple_of(2) {
         return false;
     }
     let index = id_text.len() / 2;
     let part1 = &id_text[..index];
     let part2 = &id_text[index..];
-    return part1 == part2;
+    part1 == part2
 }
 
 fn is_invalid_id_part_2(_id: isize) -> bool {
     // Placeholder for part 2 logic
     let id_text: String = _id.to_string();
     let n = id_text.len();
-    let range = (1..=(n / 2)).filter(|x| n % x == 0).rev();
+    let range = (1..=(n / 2)).filter(|x| n.is_multiple_of(*x)).rev();
     for r in range {
         let split = &id_text[..r];
         let parts = id_text.split(split).collect::<String>();
-        if parts == "" {
+        if parts.is_empty() {
             return true;
         }
     }
-    return false;
+    false
 }
 
 impl FromStr for MyRange {

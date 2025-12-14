@@ -15,7 +15,7 @@ fn part1(file_contents: &str) {
     for line in file {
         let step: i32 = line[1..].parse().unwrap();
         let direction: char = line.chars().next().unwrap();
-        let new_index = turn(index, &direction, step, 100 as i32);
+        let new_index = turn(index, &direction, step, 100_i32);
         if new_index == 0 {
             count += 1
         }
@@ -66,12 +66,4 @@ fn ccw(index: i32, step: i32, size: i32) -> i32 {
 
 fn get_file(path: &str) -> String {
     fs::read_to_string(path).unwrap()
-}
-
-fn get_direction(direction: &str) -> i32 {
-    match direction {
-        "L" => -1,
-        "R" => 1,
-        _ => 0,
-    }
 }
