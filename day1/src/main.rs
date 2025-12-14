@@ -57,7 +57,7 @@ fn turn(index: i32, direction: &char, step: i32, size: i32) -> i32 {
 }
 
 fn cw(index: i32, step: i32, size: i32) -> i32 {
-    (index + step + size) % size
+    (index + step) % size
 }
 
 fn ccw(index: i32, step: i32, size: i32) -> i32 {
