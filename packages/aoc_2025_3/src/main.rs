@@ -1,9 +1,7 @@
 fn main() {
-    let _input = std::fs::read_to_string("packages/aoc_2025_3/input.txt")
-        .expect("Failed to read input file");
+    let _input = std::fs::read_to_string("input.txt").expect("Failed to read input file");
     let result = solve_1(&_input);
-    println!("day1: {}", result);
-    todo!();
+    println!("day3 part 1: {}", result);
 }
 
 fn solve_1(input: &str) -> isize {
